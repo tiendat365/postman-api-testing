@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "5d27fc16-3067-4b6f-8c4c-713c7155a9e6",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58829429",
+    "_collection_link": "https://go.postman.co/collection/58829429-5d27fc16-3067-4b6f-8c4c-713c7155a9e6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get pikachu",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response is JSON\", function () {\r\n    pm.response.to.be.json;\r\n});\r\n\r\npm.test(\"Pokemon name is pikachu\", function () {\r\n    const data = pm.response.json();\r\n    pm.expect(data.name).to.eql(\"pikachu\");\r\n});\r\n\r\npm.test(\"Pokemon has abilities\", function () {\r\n    const data = pm.response.json();\r\n    pm.expect(data.abilities).to.be.an(\"array\").that.is.not.empty;\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemon/pikachu",
+          "protocol": "https",
+          "host": [
+            "pokeapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "pokemon",
+            "pikachu"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Pokemon List",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response contains Pokemon list\", function () {\r\n    const data = pm.response.json();\r\n    pm.expect(data.results).to.be.an(\"array\");\r\n    pm.expect(data.results.length).to.be.above(0);\r\n});\r\n\r\npm.test(\"Each Pokemon has a name and URL\", function () {\r\n    const data = pm.response.json();\r\n    pm.expect(data.results[0].name).to.be.a(\"string\");\r\n    pm.expect(data.results[0].url).to.include(\"pokemon/\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://pokeapi.co/api/v2/pokemon?limit=10",
+          "protocol": "https",
+          "host": [
+            "pokeapi",
+            "co"
+          ],
+          "path": [
+            "api",
+            "v2",
+            "pokemon"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

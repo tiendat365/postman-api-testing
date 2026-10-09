@@ -31,7 +31,8 @@ Các test đã thực hiện:
 
 **Kết quả:** 4/4 test PASSED.
 
-![Kết quả kiểm thử Pikachu](screenshots/get-pikachu.png)
+![Kết quả kiểm thử Pikachu]
+![Pikachu Response](screenshots/get-pikachu-response.png)
 
 ### 3.2. Kiểm thử danh sách Pokémon
 
@@ -47,8 +48,7 @@ Các test đã thực hiện:
 
 **Kết quả:** Ghi lại số test thành công sau khi chạy thực tế.
 
-![Kết quả kiểm thử danh sách Pokémon](screenshots/get-pokemon-list.png)
-
+![Pikachu Tests](screenshots/pokemon-list-tests.png)
 ## 4. Kết luận
 
 Qua bài thực hành, sinh viên đã sử dụng Postman để gửi GET Request, kiểm tra dữ liệu JSON và xây dựng các test tự động. Bộ kiểm thử được lưu dưới dạng Postman Collection để thuận tiện cho việc chia sẻ và thực hiện lại.
@@ -62,4 +62,4 @@ Qua bài thực hành, sinh viên đã sử dụng Postman để gửi GET Reque
 ## 6. Sản phẩm
 
 * `postman-collection.json`: Bộ request và test script.
-* `screenshots/`: Ảnh chụp kết quả thực hành.
+
